@@ -5,3 +5,9 @@ propel:
 
   artista:
     nombre: { primaryString: true}
+    
+  ciudad:
+    nomCiudad: { primaryString: true}
+    
+  privilegios:
+    descripcion: { primaryString: true}

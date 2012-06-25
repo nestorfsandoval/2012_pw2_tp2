@@ -41,6 +41,7 @@ class CiudadTableMap extends TableMap
 		$this->addPrimaryKey('IDCIUDAD', 'Idciudad', 'INTEGER', true, 10, null);
 		$this->addForeignKey('ID_PROVINCIA', 'IdProvincia', 'INTEGER', 'provincia', 'IDPROVINCIA', true, 10, null);
 		$this->addColumn('NOMCIUDAD', 'Nomciudad', 'VARCHAR', true, 100, null);
+		$this->getColumn('NOMCIUDAD', false)->setPrimaryString(true);
 		$this->addColumn('CP', 'Cp', 'VARCHAR', true, 10, null);
 		// validators
 	} // initialize()

@@ -20,7 +20,7 @@
         </div>	
         <div class="menu">
             <a href="<?php echo url_for("bienvenido/index")?>">Inicio </a>|
-            <a href="<?php echo url_for("usuarios/index")?>"> Usuarios </a>|
+            <a href="<?php echo url_for("usuarios/usuarios")?>"> Usuarios </a>|
             <a href="<?php echo url_for("stock/index")?>"> Stock </a>|
             <a href="<?php echo url_for("compra/index")?>"> Compras </a>|
             <a href="<?php echo url_for("venta/index")?>"> Ventas</a>

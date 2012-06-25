@@ -14,5 +14,13 @@
  * @package    propel.generator.lib.model
  */
 class Empleado extends BaseEmpleado {
+    
+    public function getNombreCompleto(){
+        return $this->getApellido().', '.$this->getNombre();
+    }
+    
+    public function getDireccion(){
+        return $this->getCiudadRelatedByIdCiudad();
+    }
 
 } // Empleado

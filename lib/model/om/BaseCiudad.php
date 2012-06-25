@@ -1908,11 +1908,11 @@ abstract class BaseCiudad extends BaseObject  implements Persistent
 	/**
 	 * Return the string representation of this object
 	 *
-	 * @return string
+	 * @return string The value of the 'nomCiudad' column
 	 */
 	public function __toString()
 	{
-		return (string) $this->exportTo(CiudadPeer::DEFAULT_STRING_FORMAT);
+		return (string) $this->getNomciudad();
 	}
 
 	/**

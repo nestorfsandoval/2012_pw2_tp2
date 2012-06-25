@@ -15,8 +15,11 @@ class usuariosActions extends sfActions
   *
   * @param sfRequest $request A request object
   */
-  public function executeIndex(sfWebRequest $request)
+  public function executeUsuarios(sfWebRequest $request)
   {
    
+      $query= EmpleadoQuery::create();
+      $this->empleado=$query->find();
+      
   }
 }

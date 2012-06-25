@@ -40,6 +40,7 @@ class PrivilegiosTableMap extends TableMap
 		// columns
 		$this->addPrimaryKey('IDPRIVILEGIOS', 'Idprivilegios', 'INTEGER', true, 10, null);
 		$this->addColumn('DESCRIPCION', 'Descripcion', 'VARCHAR', true, 45, null);
+		$this->getColumn('DESCRIPCION', false)->setPrimaryString(true);
 		// validators
 	} // initialize()
 
