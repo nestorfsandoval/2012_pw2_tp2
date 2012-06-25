@@ -19,45 +19,38 @@
     <?php include_stylesheets() ?>
   </head>
   <body>
-  <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-    <!-- sample navbar -->
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">menu 1</a></li>
-              <li><a href="#">menu 2</a></li>
-              <li><a href="#">menu 3</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  menu 4 <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">add your own...</a></li>
-                  <li><a href="#">...is quite easy!</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
+    	 <!--DIV QUE CONTIENE EL ENCABEZADO-->
+    <div id="todo">
+    <div class="encabezado">
+            <!--DIV QUE CONTIENE EL LOGO-->
+        <div class="izquierda">
+            <?php echo image_tag("logo", "alt=Pochola's Music") ?>
         </div>
-      </div>
+        <div id="menu">
+                    <ul>
+                        <li><a href="<?php echo url_for('bienvenido/index')?>">Inicio</a></li>
+                        <li><a href="<?php echo url_for('catalogo/index')?>">Catalogo</a></li>
+                        <li><a href="<?php echo url_for('info/index')?>">Como comprar</a></li>
+                        <li><a href="<?php echo url_for('contacto/index')?>">Contactos</a></li>
+                    </ul>
+                    
+                   
+                   <form action="index.php" method="POST" id="login">
+                            <label>Usuario:</label>
+                            <input name="user" value="" type="text" id="user"/>
+                            <label>Contrase&ntildea:</label>
+                            <input name="pass" value="" type="password" id="pass"/>
+                            <button><i class="loguear"></i></button>
+                   </form>
+        </div>
     </div>
-    <div class="container-fluid">
-      <?php echo $sf_content ?>
-      <hr>
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
-    </div> <!-- /container -->
-    <!-- include base js files from plugin -->
-    <?php include_partial('default/mpProjectPlugin_js_assets', array('load' => array('jquery', 'twitter_bootstrap'))); ?>
-    <?php include_javascripts() ?>
-  </body>
+    <!--COMIENZA CUERPO DE PAGINA-->
+    <div id="cuerpo">
+        <?php echo $sf_content?>
+    </div>
+    <div id="pie">
+                 
+    </div>
+    </div>
+    </body>
 </html>

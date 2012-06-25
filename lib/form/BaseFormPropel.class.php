@@ -7,7 +7,7 @@
  * @subpackage form
  * @author     Your name here
  */
-abstract class BaseFormPropel extends mpFormPropel
+abstract class BaseFormPropel extends sfFormPropel
 {
   public function setup()
   {

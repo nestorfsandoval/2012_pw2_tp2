@@ -1,0 +1,86 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  artista:
+    _attributes: { phpName: Artista, idMethod: native }
+    idartista: { phpName: Idartista, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '100', required: true, index: unique }
+  ciudad:
+    _attributes: { phpName: Ciudad, idMethod: native }
+    idciudad: { phpName: Idciudad, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    id_provincia: { phpName: IdProvincia, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: provincia, foreignReference: idprovincia, onDelete: CASCADE, onUpdate: CASCADE }
+    nomCiudad: { phpName: Nomciudad, type: VARCHAR, size: '100', required: true }
+    cp: { phpName: Cp, type: VARCHAR, size: '10', required: true }
+    _indexes: { idProvincia: [id_provincia] }
+  cliente:
+    _attributes: { phpName: Cliente, idMethod: native }
+    id_clie: { phpName: IdClie, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    apellido: { phpName: Apellido, type: VARCHAR, size: '100', required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '100', required: true }
+    telefono: { phpName: Telefono, type: VARCHAR, size: '100', required: false }
+    direccion: { phpName: Direccion, type: VARCHAR, size: '150', required: true }
+    id_prov: { phpName: IdProv, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: ciudad, foreignReference: id_provincia, onDelete: CASCADE, onUpdate: CASCADE }
+    id_ciudad: { phpName: IdCiudad, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: ciudad, foreignReference: idciudad, onDelete: CASCADE, onUpdate: CASCADE }
+    email: { phpName: Email, type: VARCHAR, size: '100', required: true }
+    _indexes: { ciudad: [id_ciudad], provincia: [id_prov] }
+  empleado:
+    _attributes: { phpName: Empleado, idMethod: native }
+    id_emp: { phpName: IdEmp, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    apellido: { phpName: Apellido, type: VARCHAR, size: '100', required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '100', required: true }
+    user: { phpName: User, type: VARCHAR, size: '100', required: true }
+    pass: { phpName: Pass, type: VARCHAR, size: '100', required: true }
+    mail: { phpName: Mail, type: VARCHAR, size: '100', required: true, index: unique }
+    id_ciudad: { phpName: IdCiudad, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: ciudad, foreignReference: idciudad, onDelete: CASCADE, onUpdate: CASCADE }
+    id_prov: { phpName: IdProv, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: ciudad, foreignReference: id_provincia }
+    idprivilegio: { phpName: Idprivilegio, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: privilegios, foreignReference: idprivilegios, onDelete: CASCADE, onUpdate: CASCADE }
+    habilitado: { phpName: Habilitado, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, defaultValue: '1' }
+    _indexes: { id_ciudad: [id_ciudad], id_prov: [id_prov], id_priv: [idprivilegio] }
+    _uniques: { idempresa_UNIQUE: [id_emp] }
+  genero:
+    _attributes: { phpName: Genero, idMethod: native }
+    idgenero: { phpName: Idgenero, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    tipo: { phpName: Tipo, type: VARCHAR, size: '100', required: true, index: unique }
+    descripcion: { phpName: Descripcion, type: LONGVARCHAR, required: false }
+  privilegios:
+    _attributes: { phpName: Privilegios, idMethod: native }
+    idprivilegios: { phpName: Idprivilegios, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, required: true, index: unique }
+    descripcion: { phpName: Descripcion, type: VARCHAR, size: '45', required: true }
+  producto:
+    _attributes: { phpName: Producto, idMethod: native }
+    idproducto: { phpName: Idproducto, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    titulo: { phpName: Titulo, type: VARCHAR, size: '100', required: true }
+    idartista: { phpName: Idartista, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: artista, foreignReference: idartista, onDelete: CASCADE, onUpdate: CASCADE }
+    idgenero: { phpName: Idgenero, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: genero, foreignReference: idgenero, onDelete: CASCADE, onUpdate: CASCADE }
+    anio: { phpName: Anio, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true }
+    cantidadVentas: { phpName: Cantidadventas, type: INTEGER, required: true, defaultValue: '0' }
+    stock: { phpName: Stock, type: INTEGER, required: true, defaultValue: '1' }
+    precio: { phpName: Precio, type: DECIMAL, scale: '0', sqlType: 'decimal(10,0) unsigned', required: true }
+    _indexes: { idartista: [idartista], idgenero: [idgenero] }
+  proveedor:
+    _attributes: { phpName: Proveedor, idMethod: native }
+    idproveedor: { phpName: Idproveedor, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '100', required: true }
+  provincia:
+    _attributes: { phpName: Provincia, idMethod: native }
+    idprovincia: { phpName: Idprovincia, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    provincia: { phpName: Provincia, type: VARCHAR, size: '100', required: true }
+    _uniques: { idciudad_UNIQUE: [idprovincia] }
+  registroCompra:
+    _attributes: { phpName: Registrocompra, idMethod: native }
+    idcompra: { phpName: Idcompra, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    fecha: { phpName: Fecha, type: DATE, required: true }
+    idprovee: { phpName: Idprovee, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: proveedor, foreignReference: idproveedor, onDelete: CASCADE, onUpdate: CASCADE }
+    n_factura: { phpName: NFactura, type: VARCHAR, size: '45', required: true }
+    valor: { phpName: Valor, type: DECIMAL, scale: '0', sqlType: 'decimal(10,0) unsigned', required: true }
+    remito: { phpName: Remito, type: VARCHAR, size: '45', required: true }
+    idempleado: { phpName: Idempleado, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true }
+    _indexes: { provee: [idprovee], empeado: [idempleado] }
+  venta:
+    _attributes: { phpName: Venta, idMethod: native }
+    idventa: { phpName: Idventa, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true, index: unique }
+    fecha: { phpName: Fecha, type: DATE, required: true }
+    idcliente: { phpName: Idcliente, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: cliente, foreignReference: id_clie, onDelete: CASCADE, onUpdate: CASCADE }
+    idproducto: { phpName: Idproducto, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: producto, foreignReference: idproducto, onDelete: CASCADE, onUpdate: CASCADE }
+    _indexes: { cliente: [idcliente], disco: [idproducto] }
