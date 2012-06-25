@@ -1,0 +1,257 @@
+
+body{
+	background:#DADADA url(img/bg_body.gif) left top repeat-x;
+	color:black;
+	font-family:sans-serif;
+}
+
+a{
+	color:black;
+	text-decoration:none;
+}
+
+a.sesion{
+	color:#5D1D7B;
+	
+}
+
+a:hover{
+	color: red;
+	text-decoration:none;
+}
+
+div.encabezado,.cuerpo {
+  clear:both;
+  width:1080px;
+  margin:auto;
+ }
+
+div.menu{
+  
+  font-weight:bold;
+  clear:both;
+  width:100%;
+  margin:auto;
+  text-align:center;
+  font-size: 18px;
+}
+
+div.izquierda {
+  float:left;
+
+}
+
+div.pie{
+	width:1080px;
+	clear:both;
+}
+
+div .contenedor{
+	width:100%;
+	float:left;
+}
+
+div .panel{
+	width:20%;
+	float:right;
+}
+
+.panel input{
+	width:100%;
+}
+
+div.derecha {
+  float:right;
+  font-weight:bold;
+}
+
+input.derech{
+	float:right;
+}
+
+input.busqueda{
+ float:left;
+ color:#5D5D5D;
+ border:1px solid #BBB;
+ width:200px;
+ vertical-align:top;
+ padding:4px;
+}
+
+input.fecha{
+ float:left;
+ color:#5D5D5D;
+ border:1px solid #BBB;
+ width:100px;
+ vertical-align:top;
+ padding:4px;
+}
+
+input.listar{
+ color:#5D5D5D;
+ border:1px solid #BBB;
+ width:100px;
+ margin:10px;
+ padding:5px 10px 5px 10px;
+}
+
+label{
+ float:left;
+ padding:4px 0px 0px 100px;
+}
+
+label.formulario{
+	width:90%;
+	padding:0px;
+}
+
+select {
+ width:100%;
+ float:right;
+}
+
+hr{
+color:red;
+clear:both;
+}
+
+table{
+	margin:auto;
+	clear:both;
+}
+
+td {
+	border:0;
+	width:200px;
+	padding: 5px 0px 5px 0px;	
+	text-align:center;
+}
+
+.inicio{
+float:right;
+}
+
+p{
+ padding-top:20px;
+ width:100%;
+ margin:auto;
+}
+
+ul{
+	width:700px;
+	margin:auto;
+	padding-bottom:40px;
+}
+
+li{
+ padding-top:20px;
+}
+
+.titulos{
+	font-size:13px;
+	background-color:#555555;
+	color:white;
+	font-weight:bold;
+	
+}
+
+.listado{
+	font-size:13px;
+	background-color:#B0B0B0;
+}
+
+.listado-deshabilitado{
+    font-size:13px;
+    color: white;
+    background-color: orangered;
+}
+
+.listado .editarUsuario,.listado-deshabilitado .editarUsuario{
+    background-image: url(css/smoothness/images/ui-icons_222222_256x240.png);
+    background-position:  -64px -112px;    
+    border-radius: 3px;
+    height: 20px;
+    width: 20px;
+    
+}
+.listado .borrarUsuario, .listado-deshabilitado .borrarUsuario{
+    background-image: url(css/smoothness/images/ui-icons_222222_256x240.png);
+    background-position:  -176px -96px;    
+    border-radius: 3px;
+    height: 20px;
+    width: 20px;
+}
+
+
+
+form.right{
+float:right;
+text-align:center;
+width:20%;
+}
+
+form.left{
+float:left;
+text-align:center;
+}
+
+form.panelUser{
+	width:300px;
+}
+
+td img{
+margin-right:25px;
+margin-left:25px;
+}
+
+.addStock input{margin:auto;margin-left:5px;float:left;}
+.mas{float:left;}
+
+#newUsuario,#editarDisco,#delUsuario,#modUsuario,#newProdu,#agregaCompra,#editarCompra{
+	font-size:80%;
+}
+#addUser{
+    width:100%;
+}
+#addUser label{
+    float: left;
+    padding:0px;
+    text-align: right;
+    width: 40%;
+}
+#addUser input{
+    border-radius: 4px;
+    float: left;
+    padding-left: 2px;
+    width: 50%;
+}
+
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em;}
+.ui-button-text{font-size:60%;}
+.ui-widget-header {font-size:60%;}
+
+#nuevoArtista label,#nuevoGenero label,#nuevaCiudad label,.editarUser label{
+    padding:0px;
+}
+
+.alert{
+    background-image: url(css/smoothness/images/ui-icons_222222_256x240.png);
+    background-position: 0 -144px;
+    height: 14px;
+    width: 18px;
+    display: inline-block;
+}
+
+#Alerta{
+    color: red;
+    margin: auto;
+    text-align: center;
+    text-decoration: #5D1D7B;
+    width: 1080px;
+}
+
+#newUser{
+    float: right;
+    margin-right: 50px;
+}
