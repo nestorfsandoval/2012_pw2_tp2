@@ -11,7 +11,16 @@ class usuariosActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->empleados = empleadoQuery::create()->find();
+
+    $consulta = empleadoQuery::create();
+    
+    if($request->getParameter('buscaUser')){
+        $palabra=$request->getParameter('buscaUser');
+        $consulta->findByNombre($palabra);
+        $consulta->_or();
+        $consulta->findByApellido($palabra);
+    }
+    $this->empleados=$consulta->find();
   }
 
   public function executeNew(sfWebRequest $request)

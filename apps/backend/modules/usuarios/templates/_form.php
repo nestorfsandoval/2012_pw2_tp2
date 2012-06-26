@@ -10,67 +10,67 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('usuarios/index') ?>">Back to list</a>
+          &nbsp;<a href="<?php echo url_for('usuarios/index') ?>">Volver</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'usuarios/delete?id_emp='.$form->getObject()->getIdEmp(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Borrar', 'usuarios/delete?id_emp='.$form->getObject()->getIdEmp(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Guardar" />
         </td>
       </tr>
     </tfoot>
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
       <tr>
-        <th><?php echo $form['apellido']->renderLabel() ?></th>
+        <th><?php echo $form['apellido']->renderLabel('Apellido') ?></th>
         <td>
           <?php echo $form['apellido']->renderError() ?>
           <?php echo $form['apellido'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['nombre']->renderLabel() ?></th>
+        <th><?php echo $form['nombre']->renderLabel('Nombre') ?></th>
         <td>
           <?php echo $form['nombre']->renderError() ?>
           <?php echo $form['nombre'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['user']->renderLabel() ?></th>
+        <th><?php echo $form['user']->renderLabel('Usuario') ?></th>
         <td>
           <?php echo $form['user']->renderError() ?>
           <?php echo $form['user'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['pass']->renderLabel() ?></th>
+        <th><?php echo $form['pass']->renderLabel('Contrase&ntilde;a') ?></th>
         <td>
           <?php echo $form['pass']->renderError() ?>
           <?php echo $form['pass'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['mail']->renderLabel() ?></th>
+        <th><?php echo $form['mail']->renderLabel('Email') ?></th>
         <td>
           <?php echo $form['mail']->renderError() ?>
           <?php echo $form['mail'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['id_ciudad']->renderLabel() ?></th>
+        <th><?php echo $form['id_ciudad']->renderLabel('Ciudad') ?></th>
         <td>
           <?php echo $form['id_ciudad']->renderError() ?>
           <?php echo $form['id_ciudad'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['id_prov']->renderLabel() ?></th>
+        <th><?php echo $form['id_prov']->renderLabel('Provincia') ?></th>
         <td>
           <?php echo $form['id_prov']->renderError() ?>
           <?php echo $form['id_prov'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['idprivilegio']->renderLabel() ?></th>
+        <th><?php echo $form['idprivilegio']->renderLabel('Privilegio') ?></th>
         <td>
           <?php echo $form['idprivilegio']->renderError() ?>
           <?php echo $form['idprivilegio'] ?>

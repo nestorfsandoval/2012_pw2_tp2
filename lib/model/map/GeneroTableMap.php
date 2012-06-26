@@ -40,6 +40,7 @@ class GeneroTableMap extends TableMap
 		// columns
 		$this->addPrimaryKey('IDGENERO', 'Idgenero', 'INTEGER', true, 10, null);
 		$this->addColumn('TIPO', 'Tipo', 'VARCHAR', true, 100, null);
+		$this->getColumn('TIPO', false)->setPrimaryString(true);
 		$this->addColumn('DESCRIPCION', 'Descripcion', 'LONGVARCHAR', false, null, null);
 		// validators
 	} // initialize()
