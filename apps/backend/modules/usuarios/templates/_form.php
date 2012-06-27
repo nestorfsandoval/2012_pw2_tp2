@@ -42,13 +42,6 @@
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['pass']->renderLabel('Contrase&ntilde;a') ?></th>
-        <td>
-          <?php echo $form['pass']->renderError() ?>
-          <?php echo $form['pass'] ?>
-        </td>
-      </tr>
-      <tr>
         <th><?php echo $form['mail']->renderLabel('Email') ?></th>
         <td>
           <?php echo $form['mail']->renderError() ?>
