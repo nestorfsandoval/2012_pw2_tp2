@@ -17,6 +17,10 @@ class contactoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+<<<<<<< HEAD
    
+=======
+    //$this->forward('default', 'module');
+>>>>>>> 68100c847fe003581072155b095140633b522771
   }
 }

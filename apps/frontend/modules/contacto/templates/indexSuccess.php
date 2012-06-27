@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 <head>
+=======
+	<head>
+>>>>>>> 68100c847fe003581072155b095140633b522771
 	<title>Contacto</title>
 	<link rel='stylesheet' href='main.css'>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
 	<script type="text/javascript" language="Javascript" src="js/delContacto.js"></script>
 	</head>
+<<<<<<< HEAD
 	<div id="tabs-5">
+=======
+	<div id="contacto">
+>>>>>>> 68100c847fe003581072155b095140633b522771
 		<?php
 			if(isset($_POST['boton'])){
 				if($_POST['nombre'] == ''){
@@ -40,13 +48,24 @@
 				}
 			}
 		?>
+<<<<<<< HEAD
 				<div><label>Tu Nombre:</label><input type='text' class='nombre' name='nombre' value='<?php echo $_POST['nombre']; ?>'><?php echo $error1 ?></div> 
+=======
+			<form class='contacto' method='POST' action=''>
+				<div><label>Tu Nombre:</label><input type='text' class='nombre' name='nombre' value='<?php echo $_POST['nombre']; ?>'><?php echo $error1 ?></div>
+>>>>>>> 68100c847fe003581072155b095140633b522771
 				<div><label>Tu Email:</label><input type='text' class='email' name='email' value='<?php echo $_POST['email']; ?>'><?php echo $error2 ?></div>
 				<div><label>Asunto:</label><input type='text' class='asunto' name='asunto' value='<?php echo $_POST['asunto']; ?>'><?php echo $error3 ?></div>
 				<div><label>Mensaje:</label><textarea rows='6' class='mensaje' name='mensaje'><?php echo $_POST['mensaje']; ?></textarea><?php echo $error4 ?></div>
 				<div><input type='submit' value='Envia Mensaje' class='boton' name='boton'></div>
 				<?php echo $result; ?>
+<<<<<<< HEAD
 			</form> 
 		</body>
 	</div>
   
+=======
+			</form>
+		</body>
+	</div>
+>>>>>>> 68100c847fe003581072155b095140633b522771
