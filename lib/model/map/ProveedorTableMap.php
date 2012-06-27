@@ -40,6 +40,7 @@ class ProveedorTableMap extends TableMap
 		// columns
 		$this->addPrimaryKey('IDPROVEEDOR', 'Idproveedor', 'INTEGER', true, 10, null);
 		$this->addColumn('NOMBRE', 'Nombre', 'VARCHAR', true, 100, null);
+		$this->getColumn('NOMBRE', false)->setPrimaryString(true);
 		// validators
 	} // initialize()
 

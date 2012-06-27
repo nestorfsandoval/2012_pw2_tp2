@@ -17,6 +17,7 @@ class contactoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+<<<<<<< HEAD
     $this->form = new ContactoForm();
     if ($request->hasParameter('contacto'))
     {
@@ -50,5 +51,12 @@ class contactoActions extends sfActions
     }
     $this->getResponse()->setTitle('Contactanos');
     return 'Success';
+=======
+<<<<<<< HEAD
+   
+=======
+    //$this->forward('default', 'module');
+>>>>>>> 68100c847fe003581072155b095140633b522771
+>>>>>>> af868f9b7c33d72032bb96001350e2975dd0fcf3
   }
 }

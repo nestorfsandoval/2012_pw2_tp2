@@ -1118,11 +1118,11 @@ abstract class BaseGenero extends BaseObject  implements Persistent
 	/**
 	 * Return the string representation of this object
 	 *
-	 * @return string
+	 * @return string The value of the 'tipo' column
 	 */
 	public function __toString()
 	{
-		return (string) $this->exportTo(GeneroPeer::DEFAULT_STRING_FORMAT);
+		return (string) $this->getTipo();
 	}
 
 	/**

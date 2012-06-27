@@ -9,5 +9,14 @@ propel:
   ciudad:
     nomCiudad: { primaryString: true}
     
+  provincia:
+    provincia: { primaryString: true}
+    
   privilegios:
     descripcion: { primaryString: true}
+    
+  genero:
+    tipo: { primaryString: true }
+    
+  proveedor:
+    nombre: { primaryString: true }

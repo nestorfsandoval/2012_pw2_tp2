@@ -21,7 +21,7 @@ abstract class BaseEmpleadoForm extends BaseFormPropel
       'pass'         => new sfWidgetFormInputText(),
       'mail'         => new sfWidgetFormInputText(),
       'id_ciudad'    => new sfWidgetFormPropelChoice(array('model' => 'Ciudad', 'add_empty' => false)),
-      'id_prov'      => new sfWidgetFormPropelChoice(array('model' => 'Ciudad', 'add_empty' => false, 'key_method' => 'getIdProvincia')),
+      'id_prov'      => new sfWidgetFormPropelChoice(array('model' => 'Provincia', 'add_empty' => false, 'key_method' => 'getIdProvincia')),
       'idprivilegio' => new sfWidgetFormPropelChoice(array('model' => 'Privilegios', 'add_empty' => false)),
       'habilitado'   => new sfWidgetFormInputText(),
     ));
