@@ -11,6 +11,7 @@ class usuariosActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+<<<<<<< HEAD
 
     $consulta = empleadoQuery::create();
     
@@ -21,6 +22,9 @@ class usuariosActions extends sfActions
         $consulta->findByApellido($palabra);
     }
     $this->empleados=$consulta->find();
+=======
+    $this->empleados = empleadoQuery::create()->find();
+>>>>>>> eedbe7e... acutalizacion de stock,compras en intranet
   }
 
   public function executeNew(sfWebRequest $request)
