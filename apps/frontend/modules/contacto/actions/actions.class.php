@@ -17,7 +17,6 @@ class contactoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-<<<<<<< HEAD
     $this->form = new ContactoForm();
     if ($request->hasParameter('contacto'))
     {
@@ -27,15 +26,15 @@ class contactoActions extends sfActions
       if ($this->form->isValid())
       {
         $values = $this->form->getValues();
-        $text_msg = 'Recibiste un mensaje'."\r\n\r\n";
+        $text_msg = 'Recibiste un mensaje!'."\r\n\r\n";
         $html_msg = 'Recibiste un mensaje!<br /><br />';
         foreach($values as $name => $value)
         {
           $text_msg .= $name.':'."\r\n".$value."\r\n\r\n";
           $html_msg .= $name.':<br />'.$value.'<br /><br />';
         }
-        $text_msg .= 'Gracias!';
-        $html_msg .= 'Gracias!';
+        $text_msg .'Gracias!';
+        $html_msg .'Gracias!';
  
         $from = array('contacto@pocholas.com' => 'Formulario Contacto Pochola');
         $to = array('luis.arrix@gmail.com');
@@ -51,12 +50,8 @@ class contactoActions extends sfActions
     }
     $this->getResponse()->setTitle('Contactanos');
     return 'Success';
-=======
-<<<<<<< HEAD
-   
-=======
+
     //$this->forward('default', 'module');
->>>>>>> 68100c847fe003581072155b095140633b522771
->>>>>>> af868f9b7c33d72032bb96001350e2975dd0fcf3
+        
   }
 }
