@@ -16,9 +16,9 @@ class usuariosActions extends sfActions
     
     if($request->getParameter('buscaUser')){
         $palabra=$request->getParameter('buscaUser');
-        $consulta->findByNombre($palabra);
+        $consulta->findByNombre('%'.$palabra.'%');
         $consulta->_or();
-        $consulta->findByApellido($palabra);
+        $consulta->findByApellido('%'.$palabra.'%');
     }
     $this->empleados=$consulta->find();
 
@@ -49,6 +49,7 @@ class usuariosActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
+      
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
     $empleado = empleadoQuery::create()->findPk($request->getParameter('id_emp'));
     $this->forward404Unless($empleado, sprintf('Object empleado does not exist (%s).', $request->getParameter('id_emp')));
@@ -77,7 +78,7 @@ class usuariosActions extends sfActions
     {
       $empleado = $form->save();
 
-      $this->redirect('usuarios/edit?id_emp='.$empleado->getIdEmp());
+      $this->redirect('usuarios/index');
     }
   }
 }

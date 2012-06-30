@@ -20,7 +20,7 @@ abstract class BaseRegistrocompraForm extends BaseFormPropel
       'n_factura'  => new sfWidgetFormInputText(),
       'valor'      => new sfWidgetFormInputText(),
       'remito'     => new sfWidgetFormInputText(),
-      'idempleado' => new sfWidgetFormInputText(),
+      //'idempleado' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -30,7 +30,7 @@ abstract class BaseRegistrocompraForm extends BaseFormPropel
       'n_factura'  => new sfValidatorString(array('max_length' => 45)),
       'valor'      => new sfValidatorNumber(),
       'remito'     => new sfValidatorString(array('max_length' => 45)),
-      'idempleado' => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
+      //'idempleado' => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
     ));
 
     $this->validatorSchema->setPostValidator(

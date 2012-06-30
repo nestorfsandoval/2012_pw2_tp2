@@ -11,7 +11,27 @@ class compraActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->registrocompras = registrocompraQuery::create()->find();
+    $consulta=registrocompraQuery::create();
+    
+    if ($request->getParameter('busqueda')){
+        $palabra=$request->getParameter('busqueda');
+        
+         switch ($request->getParameter('estado')){
+                case 'proveedor':   $consulta->useProveedorQuery()
+                                            ->filterByNombre('%'.$palabra.'%')
+                                            ->endUse();
+                    break;
+                case 'factura':     $consulta->filterByNFactura('%'.$palabra.'%');
+                    break;
+                case 'monto':       $consulta->filterByValor('%'.$palabra.'%');
+                    break;
+                case 'remito':      $consulta->filterByRemito('%'.$palabra.'%');
+                    break;
+                    
+         }
+    }
+      
+    $this->registrocompras = $consulta->find();
   }
 
   public function executeNew(sfWebRequest $request)

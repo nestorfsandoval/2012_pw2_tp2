@@ -19,7 +19,7 @@ abstract class BaseProductoForm extends BaseFormPropel
       'idartista'  => new sfWidgetFormPropelChoice(array('model' => 'Artista', 'add_empty' => false)),
       'idgenero'   => new sfWidgetFormPropelChoice(array('model' => 'Genero', 'add_empty' => false)),
       'anio'       => new sfWidgetFormInputText(),
-      'ventas'     => new sfWidgetFormInputText(),
+//      'ventas'     => new sfWidgetFormInputText(),
       'stock'      => new sfWidgetFormInputText(),
       'precio'     => new sfWidgetFormInputText(),
     ));
@@ -30,7 +30,7 @@ abstract class BaseProductoForm extends BaseFormPropel
       'idartista'  => new sfValidatorPropelChoice(array('model' => 'Artista', 'column' => 'idartista')),
       'idgenero'   => new sfValidatorPropelChoice(array('model' => 'Genero', 'column' => 'idgenero')),
       'anio'       => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
-      'ventas'     => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
+  //    'ventas'     => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
       'stock'      => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
       'precio'     => new sfValidatorNumber(),
     ));
@@ -50,6 +50,5 @@ abstract class BaseProductoForm extends BaseFormPropel
   {
     return 'Producto';
   }
-
 
 }

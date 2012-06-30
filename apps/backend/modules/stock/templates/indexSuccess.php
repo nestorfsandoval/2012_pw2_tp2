@@ -1,7 +1,7 @@
 <div class="cuerpo">
 <fieldset>
         <legend>Control de Stock</legend>
-        <form class="left" action="index.php" method="GET">
+        <form class="left" action="<?php echo url_for('stock/index') ?>" method="GET">
             <!-- ESTE INPUT OCULTO INDICA A QUE CONTENIDO DEBE MANDARLE LOS VALORES DEL FORMULARIO -->
             <input type="hidden" name="op" value="3">
             <input  class="busqueda" type="text" name="buscaProdu" placeholder="Ingrese Busqueda..." size="50" />
@@ -19,14 +19,20 @@
       <td>GENERO</td>
       <td>ACCION</td>
     </tr>
-    <?php foreach ($productos as $producto): ?>
-    <tr class="listado">
-      <td><a href="<?php echo url_for('stock/edit?idproducto='.$producto->getIdproducto()) ?>"><?php echo $producto->getIdproducto() ?></a></td>
+    <?php foreach ($productos as $producto): 
+     if($producto->getStock() > 15){
+                            $listado='listado';
+                        }else{
+                            $listado='listado-deshabilitado';
+                        }
+                        ?>
+    <tr class="<?php echo $listado?>">
+      <td><?php echo $producto->getIdproducto() ?></td>
       <td><?php echo $producto->getTitulo() ?></td>
       <td><?php echo $producto->getArtista() ?></td>
       <td><?php echo $producto->getStock() ?></td>
       <td><?php echo $producto->getGenero() ?></td>
-      <td>editar</td>
+      <td><a href="<?php echo url_for('stock/edit?idproducto='.$producto->getIdproducto()) ?>">editar</a></td>
     </tr>
     <?php endforeach; ?>
 </table>

@@ -1,3 +1,3 @@
-<h1>Edit Empleado</h1>
+<div class="titulo-form">Editar Empleado</div>
 
 <?php include_partial('form', array('form' => $form)) ?>

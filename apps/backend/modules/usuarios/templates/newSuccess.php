@@ -1,3 +1,3 @@
-<h1>New Empleado</h1>
+<div class="titulo-form">Nuevo Empleado</div>
 
 <?php include_partial('form', array('form' => $form)) ?>

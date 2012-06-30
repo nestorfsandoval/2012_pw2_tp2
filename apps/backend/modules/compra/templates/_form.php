@@ -10,9 +10,9 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('compra/index') ?>">Back to list</a>
+          &nbsp;<a href="<?php echo url_for('compra/index') ?>">Volver</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'compra/delete?idcompra='.$form->getObject()->getIdcompra(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Borrar', 'compra/delete?idcompra='.$form->getObject()->getIdcompra(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
           <input type="submit" value="Save" />
         </td>
@@ -53,13 +53,6 @@
         <td>
           <?php echo $form['remito']->renderError() ?>
           <?php echo $form['remito'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo $form['idempleado']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['idempleado']->renderError() ?>
-          <?php echo $form['idempleado'] ?>
         </td>
       </tr>
     </tbody>

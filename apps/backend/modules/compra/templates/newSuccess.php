@@ -1,3 +1,4 @@
-<h1>New Registrocompra</h1>
+
+<div class="titulo-form">Nuevo Registro de Compra</div>
 
 <?php include_partial('form', array('form' => $form)) ?>

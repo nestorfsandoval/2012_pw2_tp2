@@ -10,11 +10,11 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('stock/index') ?>">Back to list</a>
+          &nbsp;<a href="<?php echo url_for('stock/index') ?>">Volver</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'stock/delete?idproducto='.$form->getObject()->getIdproducto(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Borrar', 'stock/delete?idproducto='.$form->getObject()->getIdproducto(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Guardar" />
         </td>
       </tr>
     </tfoot>
@@ -48,13 +48,7 @@
           <?php echo $form['anio'] ?>
         </td>
       </tr>
-      <tr>
-        <th><?php echo $form['ventas']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['ventas']->renderError() ?>
-          <?php echo $form['ventas'] ?>
-        </td>
-      </tr>
+     
       <tr>
         <th><?php echo $form['stock']->renderLabel() ?></th>
         <td>

@@ -21,7 +21,12 @@
                         <td>Acciones</td>
                     </tr>';
                     foreach($empleados as $persona):
-                        echo '<tr  class="listado">
+                        if($persona->getHabilitado() == 1){
+                            $listado='listado';
+                        }else{
+                            $listado='listado-deshabilitado';
+                        }
+                        echo '<tr  class="'.$listado.'">
                                 <td>'.$persona->getNombreCompleto().'</td>
                                 <td>'.$persona->getUser().'</td>
                                 <td>'.$persona->getPrivilegios().'</td>

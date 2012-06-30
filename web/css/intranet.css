@@ -255,3 +255,15 @@ margin-left:25px;
     float: right;
     margin-right: 50px;
 }
+
+#registrocompra_fecha_day{width: 40px;float: left;}
+
+#registrocompra_fecha_month{width: 40px;float: left;}
+
+#registrocompra_fecha_year{ width: 70px;float: left;}
+
+.titulo-form{
+    text-align: center;
+    color: #5D1D7B;
+    font-weight: bold; 
+}
