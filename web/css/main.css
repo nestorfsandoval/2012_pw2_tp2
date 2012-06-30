@@ -1,4 +1,3 @@
-
 body{background-image: url("img/back02.png"); 
      color: white; 
     font-family: helvetica;
@@ -244,4 +243,15 @@ td
 tbody tr:hover td
 {
 color: #F95565;
+}
+
+#left .campo{
+float:left;
+text-align:center;
+}
+
+#left .boton{
+  alignment-adjust: auto;
+  width: 25px;
+  height: 25px;
 }

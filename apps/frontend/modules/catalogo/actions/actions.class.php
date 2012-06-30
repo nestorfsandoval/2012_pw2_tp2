@@ -9,9 +9,21 @@
  */
 class catalogoActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+public function executeIndex(sfWebRequest $request)
   {
-    $this->productos = productoQuery::create()->find();
+        
+    $consulta = productoQuery::create();
+    
+    if($request->getParameter('buscaProdu')){
+        $palabra=$request->getParameter('buscaProdu');
+        $consulta->filterByTitulo('%'.$palabra.'%')
+                    ->_or()
+                    ->useArtistaQuery()
+                    ->filterByNombre('%'.$palabra.'%')
+                    ->endUse();
+    }
+    
+    $this->productos=$consulta->find();
   }
 
   public function executeNew(sfWebRequest $request)

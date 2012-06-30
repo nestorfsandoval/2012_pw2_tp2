@@ -10,4 +10,17 @@
  */
 class BaseForm extends mpForm
 {
+  
+   public function camposVisibles()
+  {
+    $campos_ocultos = $this->getFormFieldSchema()->getHiddenFields();
+    $campos = array();
+    foreach($this as $nombre => $campo)
+    {
+      if (!in_array($campo, $campos_ocultos))
+        $campos[$nombre] = $campo;
+    }
+    return $campos;
+  }
+  
 }
