@@ -32,7 +32,7 @@
       <td><?php echo $producto->getArtista() ?></td>
       <td><?php echo $producto->getStock() ?></td>
       <td><?php echo $producto->getGenero() ?></td>
-      <td><a href="<?php echo url_for('stock/edit?idproducto='.$producto->getIdproducto()) ?>">editar</a></td>
+      <td><a href="<?php echo url_for('stock/edit?idproducto='.$producto->getIdproducto()) ?>"><img src="<?php echo image_path('edit.gif')?>"></a></td>
     </tr>
     <?php endforeach; ?>
 </table>

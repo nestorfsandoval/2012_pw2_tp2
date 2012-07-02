@@ -4,9 +4,9 @@
         <form class="left" id="frm_btn_list" action="<?php echo url_for('compra/index')?>" method="POST">     
             <input class="busqueda" type="text" name="busqueda" placeholder="Ingrese Busqueda..." />
             <label>Desde:</label>
-            <input class="fecha" id="fechad" type="text" name="desdefecha" MAXLENGTH="10" value="dd/mm/aaaa"/>
+            <input class="fecha" id="fechad" type="text" name="desdefecha" MAXLENGTH="10" placeholder="aaaa-mm-dd"/>
             <label>Hasta:</label>
-            <input class="fecha" id="fechah" type="text" name="hastafecha" MAXLENGTH="10" value="dd/mm/aaaa"/><br/>
+            <input class="fecha" id="fechah" type="text" name="hastafecha" MAXLENGTH="10" placeholder="aaaa-mm-dd"/><br/>
             PROVEEDOR<INPUT type="radio" name="estado" value="proveedor" checked="checked">
             FACTURA<INPUT type="radio" name="estado" value="factura">
             MONTO<INPUT type="radio" name="estado" value="monto">
@@ -35,7 +35,7 @@
                 <td><?php echo $registrocompra->getNFactura() ?></td>
                 <td><?php echo $registrocompra->getValor() ?></td>
                 <td><?php echo $registrocompra->getRemito() ?></td>
-                <td><a href="<?php echo url_for('compra/edit?idcompra='.$registrocompra->getIdcompra()) ?>">editar</a></td>
+                <td><a href="<?php echo url_for('compra/edit?idcompra='.$registrocompra->getIdcompra()) ?>"><img src="<?php echo image_path('edit.gif')?>"></a></td>
             </tr>
             <?php endforeach; ?>
         </table>

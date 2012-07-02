@@ -14,7 +14,7 @@
                 <?php echo image_tag("logo.png")?>
             </div>
             <div class="derecha">
-                Bienvenido <?php echo $sf_user->getAttribute('nombre_usuario')?> | <a class="sesion" href="<?php echo url_for('bienvenido/index?logout=1')?>">Desconectar</a>	
+                Bienvenido <?php $sf_user->getAttribute('nombre_usuario')?> | <a class="sesion" href="<?php echo url_for('bienvenido/index?logout=1')?>">Desconectar</a>	
             </div>
         </div>	
         <div class="menu">

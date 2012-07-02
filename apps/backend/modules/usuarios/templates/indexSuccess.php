@@ -31,7 +31,7 @@
                                 <td>'.$persona->getUser().'</td>
                                 <td>'.$persona->getPrivilegios().'</td>
                                 <td>'.$persona->getDireccion().'</td>
-                                <td><a href="'.url_for('usuarios/edit?id_emp='.$persona->getIdEmp()).'">editar</a></td>
+                                <td><a href="'.url_for('usuarios/edit?id_emp='.$persona->getIdEmp()).'"><img src="'.image_path('edit.gif').'"></a></td>
                             </tr>';
                     endforeach;
             echo '</table>';

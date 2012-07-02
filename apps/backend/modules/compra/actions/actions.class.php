@@ -15,6 +15,12 @@ class compraActions extends sfActions
     
     if ($request->getParameter('busqueda')){
         $palabra=$request->getParameter('busqueda');
+
+        if($request->getParameter('desdefecha')&&$request->getParameter('hastafecha')){
+             $desde=$request->getParameter('desdefecha');
+             $hasta=$request->getParameter('hastafecha');
+             $consulta->where("fecha BETWEEN '$desde' AND '$hasta'");
+         }
         
          switch ($request->getParameter('estado')){
                 case 'proveedor':   $consulta->useProveedorQuery()
@@ -29,6 +35,9 @@ class compraActions extends sfActions
                     break;
                     
          }
+         
+         
+         
     }
       
     $this->registrocompras = $consulta->find();
