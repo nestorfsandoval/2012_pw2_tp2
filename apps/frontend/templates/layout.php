@@ -34,14 +34,22 @@
                         <li><a href="<?php echo url_for('contacto/index')?>">Contactos</a></li>
                     </ul>
                     
-                   
-                   <form action="index.php" method="POST" id="login">
+                <?php if ($sf_user->isAuthenticated())
+                echo 'Bienvenido'.$sf_user->getAttribute('nombre_usuario').' |<a href="'.url_for('bienvenido/index').'?logout=1">Desconectar</a>'; 
+                    else{?>
+                    <form action="<?php echo url_for('bienvenido/index')?>" method="POST" id="login">
                             <label>Usuario:</label>
                             <input name="user" value="" type="text" id="user"/>
                             <label>Contrase&ntildea:</label>
                             <input name="pass" value="" type="password" id="pass"/>
                             <button><i class="loguear"></i></button>
                    </form>
+                    
+                    <?php 
+                    echo $sf_user->getAttribute('alerta');
+                    
+                    } ?>
+                   
         </div>
     </div>
     <!--COMIENZA CUERPO DE PAGINA-->

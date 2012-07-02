@@ -19,9 +19,9 @@
   <tbody>
     <?php foreach ($productos as $producto): ?>
     <tr>
-      <td><?php echo $producto->getIdartista() ?></td>
+      <td><?php echo $producto->getArtista() ?></td>
       <td><?php echo $producto->getTitulo() ?></td>
-      <td><?php echo $producto->getIdgenero() ?></td>
+      <td><?php echo $producto->getGenero() ?></td>
       <td><?php echo '$'  .   $producto->getPrecio() ?></td> 
     </tr>
     <?php endforeach; ?>

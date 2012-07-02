@@ -33,3 +33,7 @@ all:
 
     # Enable the database manager
     use_database:           true
+    
+    # Spanish language supported, but it's not the default anymore
+    default_culture:        es
+    i18n:                   true

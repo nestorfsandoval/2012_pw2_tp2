@@ -17,6 +17,16 @@ class bienvenidoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+      if(($usuario=$request->getParameter('user'))&&($pass=$request->getParameter('pass'))){
+          
+          $this->getUser()->IniciarSesion($usuario,md5($pass));
+          return $this->redirect('http://localhost/2012pw2tp2/backend_dev.php');
+
+      }
+      
+      if($request->getParameter('logout')){
+          $this->getUser()->cerrarSesion();
+      }
     
   }
 }

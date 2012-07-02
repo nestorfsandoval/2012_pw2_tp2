@@ -17,6 +17,9 @@ class bienvenidoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    
+   
+      if($request->getParameter('logout') && $request->getParameter('logout')==1){
+          return $this->redirect('http://localhost/2012pw2tp2/frontend_dev.php?logout=1');
+      }
   }
 }
