@@ -23,6 +23,8 @@ propel:
     id_prov: { phpName: IdProv, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: ciudad, foreignReference: id_provincia, onDelete: CASCADE, onUpdate: CASCADE }
     id_ciudad: { phpName: IdCiudad, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: ciudad, foreignReference: idciudad, onDelete: CASCADE, onUpdate: CASCADE }
     email: { phpName: Email, type: VARCHAR, size: '100', required: true }
+    user: { phpName: User, type: VARCHAR, size: '50', required: true }
+    pass: { phpName: Pass, type: VARCHAR, size: '50', required: true }
     _indexes: { ciudad: [id_ciudad], provincia: [id_prov] }
   empleado:
     _attributes: { phpName: Empleado, idMethod: native }

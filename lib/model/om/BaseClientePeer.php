@@ -23,13 +23,13 @@ abstract class BaseClientePeer {
 	const TM_CLASS = 'ClienteTableMap';
 
 	/** The total number of columns. */
-	const NUM_COLUMNS = 8;
+	const NUM_COLUMNS = 10;
 
 	/** The number of lazy-loaded columns. */
 	const NUM_LAZY_LOAD_COLUMNS = 0;
 
 	/** The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS) */
-	const NUM_HYDRATE_COLUMNS = 8;
+	const NUM_HYDRATE_COLUMNS = 10;
 
 	/** the column name for the ID_CLIE field */
 	const ID_CLIE = 'cliente.ID_CLIE';
@@ -55,6 +55,12 @@ abstract class BaseClientePeer {
 	/** the column name for the EMAIL field */
 	const EMAIL = 'cliente.EMAIL';
 
+	/** the column name for the USER field */
+	const USER = 'cliente.USER';
+
+	/** the column name for the PASS field */
+	const PASS = 'cliente.PASS';
+
 	/** The default string format for model objects of the related table **/
 	const DEFAULT_STRING_FORMAT = 'YAML';
 
@@ -74,12 +80,12 @@ abstract class BaseClientePeer {
 	 * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
 	 */
 	protected static $fieldNames = array (
-		BasePeer::TYPE_PHPNAME => array ('IdClie', 'Apellido', 'Nombre', 'Telefono', 'Direccion', 'IdProv', 'IdCiudad', 'Email', ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('idClie', 'apellido', 'nombre', 'telefono', 'direccion', 'idProv', 'idCiudad', 'email', ),
-		BasePeer::TYPE_COLNAME => array (self::ID_CLIE, self::APELLIDO, self::NOMBRE, self::TELEFONO, self::DIRECCION, self::ID_PROV, self::ID_CIUDAD, self::EMAIL, ),
-		BasePeer::TYPE_RAW_COLNAME => array ('ID_CLIE', 'APELLIDO', 'NOMBRE', 'TELEFONO', 'DIRECCION', 'ID_PROV', 'ID_CIUDAD', 'EMAIL', ),
-		BasePeer::TYPE_FIELDNAME => array ('id_clie', 'apellido', 'nombre', 'telefono', 'direccion', 'id_prov', 'id_ciudad', 'email', ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, )
+		BasePeer::TYPE_PHPNAME => array ('IdClie', 'Apellido', 'Nombre', 'Telefono', 'Direccion', 'IdProv', 'IdCiudad', 'Email', 'User', 'Pass', ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('idClie', 'apellido', 'nombre', 'telefono', 'direccion', 'idProv', 'idCiudad', 'email', 'user', 'pass', ),
+		BasePeer::TYPE_COLNAME => array (self::ID_CLIE, self::APELLIDO, self::NOMBRE, self::TELEFONO, self::DIRECCION, self::ID_PROV, self::ID_CIUDAD, self::EMAIL, self::USER, self::PASS, ),
+		BasePeer::TYPE_RAW_COLNAME => array ('ID_CLIE', 'APELLIDO', 'NOMBRE', 'TELEFONO', 'DIRECCION', 'ID_PROV', 'ID_CIUDAD', 'EMAIL', 'USER', 'PASS', ),
+		BasePeer::TYPE_FIELDNAME => array ('id_clie', 'apellido', 'nombre', 'telefono', 'direccion', 'id_prov', 'id_ciudad', 'email', 'user', 'pass', ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
 	);
 
 	/**
@@ -89,12 +95,12 @@ abstract class BaseClientePeer {
 	 * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
 	 */
 	protected static $fieldKeys = array (
-		BasePeer::TYPE_PHPNAME => array ('IdClie' => 0, 'Apellido' => 1, 'Nombre' => 2, 'Telefono' => 3, 'Direccion' => 4, 'IdProv' => 5, 'IdCiudad' => 6, 'Email' => 7, ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('idClie' => 0, 'apellido' => 1, 'nombre' => 2, 'telefono' => 3, 'direccion' => 4, 'idProv' => 5, 'idCiudad' => 6, 'email' => 7, ),
-		BasePeer::TYPE_COLNAME => array (self::ID_CLIE => 0, self::APELLIDO => 1, self::NOMBRE => 2, self::TELEFONO => 3, self::DIRECCION => 4, self::ID_PROV => 5, self::ID_CIUDAD => 6, self::EMAIL => 7, ),
-		BasePeer::TYPE_RAW_COLNAME => array ('ID_CLIE' => 0, 'APELLIDO' => 1, 'NOMBRE' => 2, 'TELEFONO' => 3, 'DIRECCION' => 4, 'ID_PROV' => 5, 'ID_CIUDAD' => 6, 'EMAIL' => 7, ),
-		BasePeer::TYPE_FIELDNAME => array ('id_clie' => 0, 'apellido' => 1, 'nombre' => 2, 'telefono' => 3, 'direccion' => 4, 'id_prov' => 5, 'id_ciudad' => 6, 'email' => 7, ),
-		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, )
+		BasePeer::TYPE_PHPNAME => array ('IdClie' => 0, 'Apellido' => 1, 'Nombre' => 2, 'Telefono' => 3, 'Direccion' => 4, 'IdProv' => 5, 'IdCiudad' => 6, 'Email' => 7, 'User' => 8, 'Pass' => 9, ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('idClie' => 0, 'apellido' => 1, 'nombre' => 2, 'telefono' => 3, 'direccion' => 4, 'idProv' => 5, 'idCiudad' => 6, 'email' => 7, 'user' => 8, 'pass' => 9, ),
+		BasePeer::TYPE_COLNAME => array (self::ID_CLIE => 0, self::APELLIDO => 1, self::NOMBRE => 2, self::TELEFONO => 3, self::DIRECCION => 4, self::ID_PROV => 5, self::ID_CIUDAD => 6, self::EMAIL => 7, self::USER => 8, self::PASS => 9, ),
+		BasePeer::TYPE_RAW_COLNAME => array ('ID_CLIE' => 0, 'APELLIDO' => 1, 'NOMBRE' => 2, 'TELEFONO' => 3, 'DIRECCION' => 4, 'ID_PROV' => 5, 'ID_CIUDAD' => 6, 'EMAIL' => 7, 'USER' => 8, 'PASS' => 9, ),
+		BasePeer::TYPE_FIELDNAME => array ('id_clie' => 0, 'apellido' => 1, 'nombre' => 2, 'telefono' => 3, 'direccion' => 4, 'id_prov' => 5, 'id_ciudad' => 6, 'email' => 7, 'user' => 8, 'pass' => 9, ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
 	);
 
 	/**
@@ -174,6 +180,8 @@ abstract class BaseClientePeer {
 			$criteria->addSelectColumn(ClientePeer::ID_PROV);
 			$criteria->addSelectColumn(ClientePeer::ID_CIUDAD);
 			$criteria->addSelectColumn(ClientePeer::EMAIL);
+			$criteria->addSelectColumn(ClientePeer::USER);
+			$criteria->addSelectColumn(ClientePeer::PASS);
 		} else {
 			$criteria->addSelectColumn($alias . '.ID_CLIE');
 			$criteria->addSelectColumn($alias . '.APELLIDO');
@@ -183,6 +191,8 @@ abstract class BaseClientePeer {
 			$criteria->addSelectColumn($alias . '.ID_PROV');
 			$criteria->addSelectColumn($alias . '.ID_CIUDAD');
 			$criteria->addSelectColumn($alias . '.EMAIL');
+			$criteria->addSelectColumn($alias . '.USER');
+			$criteria->addSelectColumn($alias . '.PASS');
 		}
 	}
 

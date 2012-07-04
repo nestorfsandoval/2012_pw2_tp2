@@ -32,6 +32,20 @@
         </td>
       </tr>
       <tr>
+        <th><?php echo $form['user']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['user']->renderError() ?>
+          <?php echo $form['user'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['pass']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['pass']->renderError() ?>
+          <?php echo $form['pass'] ?>
+        </td>
+      </tr>
+      <tr>
         <th><?php echo $form['telefono']->renderLabel() ?></th>
         <td>
           <?php echo $form['telefono']->renderError() ?>

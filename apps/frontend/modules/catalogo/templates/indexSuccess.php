@@ -14,6 +14,11 @@
       <th>Titulo</th>
       <th>Genero</th>
       <th>Precio</th>
+      <?php
+      if($sf_user->isAuthenticated()){
+        echo'<th>Comprar</th>';
+      }
+      ?>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +28,12 @@
       <td><?php echo $producto->getTitulo() ?></td>
       <td><?php echo $producto->getGenero() ?></td>
       <td><?php echo '$'  .   $producto->getPrecio() ?></td> 
+      <?php
+      if($sf_user->isAuthenticated()){?>
+      <td><a href="<?php echo url_for('catalogo/index?compra='.$producto->getIdproducto())?>"><img src="<?php echo image_path('icon_buy.png')?>"></a></td>
+      <?php
+      }
+      ?>
     </tr>
     <?php 
     endforeach; 

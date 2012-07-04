@@ -11,7 +11,13 @@ class catalogoActions extends sfActions
 {
 public function executeIndex(sfWebRequest $request)
   {
-        
+    
+    if($request->getParameter('compra')){
+        $producto=$request->getParameter('compra');
+        $cliente=$this->getUser()->getAttribute('codCliente');
+        $this->realizarCompra($producto, $cliente);
+    }
+    
     $consulta = productoQuery::create()
                 ->joinWith('Artista')
                 ->joinWith('Genero');
@@ -94,5 +100,23 @@ public function executeIndex(sfWebRequest $request)
 
       $this->redirect('catalogo/edit?idproducto='.$producto->getIdproducto());
     }
+  }
+  
+  protected function realizarCompra($producto, $cliente){
+      
+      $actualizar= ProductoPeer::retrieveByPK($producto);
+      
+      $stock=$actualizar->getStock()-1;
+      $actualizar->setStock($stock);
+      $actualizar->save();
+                    
+      
+      
+      $fecha=date('Y-m-d');
+      $nuevo=new Venta();
+      $nuevo->setIdcliente($cliente);
+      $nuevo->setIdproducto($producto);
+      $nuevo->setFecha($fecha);
+      $nuevo->save();
   }
 }

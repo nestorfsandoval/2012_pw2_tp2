@@ -46,6 +46,8 @@ class ClienteTableMap extends TableMap
 		$this->addForeignKey('ID_PROV', 'IdProv', 'INTEGER', 'ciudad', 'ID_PROVINCIA', true, 10, null);
 		$this->addForeignKey('ID_CIUDAD', 'IdCiudad', 'INTEGER', 'ciudad', 'IDCIUDAD', true, 10, null);
 		$this->addColumn('EMAIL', 'Email', 'VARCHAR', true, 100, null);
+		$this->addColumn('USER', 'User', 'VARCHAR', true, 50, null);
+		$this->addColumn('PASS', 'Pass', 'VARCHAR', true, 50, null);
 		// validators
 	} // initialize()
 

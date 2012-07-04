@@ -6,19 +6,30 @@ class myUser extends sfBasicSecurityUser
     
     
     
-    $consulta = empleadoQuery::create();
+    $empleado = empleadoQuery::create();
     
-    $consulta->filterByUser($nombre_usuario)
-             ->filterByPass($pass)
+    $empleado->filterByUser($nombre_usuario)
+             ->filterByPass(md5($pass))
              ->joinWith('Privilegios');
     
-    if($this->empleado=$consulta->findOne()){ 
+    if($this->login=$empleado->findOne()){ 
         $this->setAttribute('nombre_usuario', $nombre_usuario);
-        $this->setAttribute('nivel', $this->empleado->getPrivilegios()->getDescripcion());
+        $this->setAttribute('nivel', $this->login->getPrivilegios()->getDescripcion());
         $this->setAuthenticated(true);
-    }else
-    {
-        $this->cerrarSesion();
+    }else{
+        $cliente = ClienteQuery::create();
+        $cliente->filterByUser($nombre_usuario)
+                 ->filterByPass($pass);
+        if($this->login=$cliente->findOne()){ 
+            $this->setAttribute('nombre_usuario', $this->login->getUser());
+            $this->setAttribute('nivel', 'cliente');
+            $this->setAttribute('codCliente',$this->login->getIdClie());
+            $this->setAuthenticated(true);
+        }else{
+            $this->cerrarSesion();
+        }
+        
+//        $this->cerrarSesion();
     }
   }
   

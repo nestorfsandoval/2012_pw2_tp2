@@ -14,6 +14,8 @@
  * @method     ClienteQuery orderByIdProv($order = Criteria::ASC) Order by the id_prov column
  * @method     ClienteQuery orderByIdCiudad($order = Criteria::ASC) Order by the id_ciudad column
  * @method     ClienteQuery orderByEmail($order = Criteria::ASC) Order by the email column
+ * @method     ClienteQuery orderByUser($order = Criteria::ASC) Order by the user column
+ * @method     ClienteQuery orderByPass($order = Criteria::ASC) Order by the pass column
  *
  * @method     ClienteQuery groupByIdClie() Group by the id_clie column
  * @method     ClienteQuery groupByApellido() Group by the apellido column
@@ -23,6 +25,8 @@
  * @method     ClienteQuery groupByIdProv() Group by the id_prov column
  * @method     ClienteQuery groupByIdCiudad() Group by the id_ciudad column
  * @method     ClienteQuery groupByEmail() Group by the email column
+ * @method     ClienteQuery groupByUser() Group by the user column
+ * @method     ClienteQuery groupByPass() Group by the pass column
  *
  * @method     ClienteQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
  * @method     ClienteQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
@@ -51,6 +55,8 @@
  * @method     Cliente findOneByIdProv(int $id_prov) Return the first Cliente filtered by the id_prov column
  * @method     Cliente findOneByIdCiudad(int $id_ciudad) Return the first Cliente filtered by the id_ciudad column
  * @method     Cliente findOneByEmail(string $email) Return the first Cliente filtered by the email column
+ * @method     Cliente findOneByUser(string $user) Return the first Cliente filtered by the user column
+ * @method     Cliente findOneByPass(string $pass) Return the first Cliente filtered by the pass column
  *
  * @method     array findByIdClie(int $id_clie) Return Cliente objects filtered by the id_clie column
  * @method     array findByApellido(string $apellido) Return Cliente objects filtered by the apellido column
@@ -60,6 +66,8 @@
  * @method     array findByIdProv(int $id_prov) Return Cliente objects filtered by the id_prov column
  * @method     array findByIdCiudad(int $id_ciudad) Return Cliente objects filtered by the id_ciudad column
  * @method     array findByEmail(string $email) Return Cliente objects filtered by the email column
+ * @method     array findByUser(string $user) Return Cliente objects filtered by the user column
+ * @method     array findByPass(string $pass) Return Cliente objects filtered by the pass column
  *
  * @package    propel.generator.lib.model.om
  */
@@ -148,7 +156,7 @@ abstract class BaseClienteQuery extends ModelCriteria
 	 */
 	protected function findPkSimple($key, $con)
 	{
-		$sql = 'SELECT `ID_CLIE`, `APELLIDO`, `NOMBRE`, `TELEFONO`, `DIRECCION`, `ID_PROV`, `ID_CIUDAD`, `EMAIL` FROM `cliente` WHERE `ID_CLIE` = :p0';
+		$sql = 'SELECT `ID_CLIE`, `APELLIDO`, `NOMBRE`, `TELEFONO`, `DIRECCION`, `ID_PROV`, `ID_CIUDAD`, `EMAIL`, `USER`, `PASS` FROM `cliente` WHERE `ID_CLIE` = :p0';
 		try {
 			$stmt = $con->prepare($sql);
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -481,6 +489,62 @@ abstract class BaseClienteQuery extends ModelCriteria
 			}
 		}
 		return $this->addUsingAlias(ClientePeer::EMAIL, $email, $comparison);
+	}
+
+	/**
+	 * Filter the query on the user column
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByUser('fooValue');   // WHERE user = 'fooValue'
+	 * $query->filterByUser('%fooValue%'); // WHERE user LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param     string $user The value to use as filter.
+	 *              Accepts wildcards (* and % trigger a LIKE)
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return    ClienteQuery The current query, for fluid interface
+	 */
+	public function filterByUser($user = null, $comparison = null)
+	{
+		if (null === $comparison) {
+			if (is_array($user)) {
+				$comparison = Criteria::IN;
+			} elseif (preg_match('/[\%\*]/', $user)) {
+				$user = str_replace('*', '%', $user);
+				$comparison = Criteria::LIKE;
+			}
+		}
+		return $this->addUsingAlias(ClientePeer::USER, $user, $comparison);
+	}
+
+	/**
+	 * Filter the query on the pass column
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByPass('fooValue');   // WHERE pass = 'fooValue'
+	 * $query->filterByPass('%fooValue%'); // WHERE pass LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param     string $pass The value to use as filter.
+	 *              Accepts wildcards (* and % trigger a LIKE)
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return    ClienteQuery The current query, for fluid interface
+	 */
+	public function filterByPass($pass = null, $comparison = null)
+	{
+		if (null === $comparison) {
+			if (is_array($pass)) {
+				$comparison = Criteria::IN;
+			} elseif (preg_match('/[\%\*]/', $pass)) {
+				$pass = str_replace('*', '%', $pass);
+				$comparison = Criteria::LIKE;
+			}
+		}
+		return $this->addUsingAlias(ClientePeer::PASS, $pass, $comparison);
 	}
 
 	/**

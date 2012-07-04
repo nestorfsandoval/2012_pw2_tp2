@@ -40,7 +40,7 @@
                     </ul>
                     
                 <?php if ($sf_user->isAuthenticated())
-                echo 'Bienvenido'.$sf_user->getAttribute('nombre_usuario').' |<a href="'.url_for('bienvenido/index').'?logout=1">Desconectar</a>'; 
+                echo '<div id="loginReg">Bienvenido '.$sf_user->getAttribute('nombre_usuario').' |<a href="'.url_for('bienvenido/index').'?logout=1">Desconectar</a></div>'; 
                     else{?>
                     <form action="<?php echo url_for('bienvenido/index')?>" method="POST" id="login">
                             <label>Usuario:</label>

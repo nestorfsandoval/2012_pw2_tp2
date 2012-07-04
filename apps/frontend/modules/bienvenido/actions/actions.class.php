@@ -19,9 +19,16 @@ class bienvenidoActions extends sfActions
   {
       if(($usuario=$request->getParameter('user'))&&($pass=$request->getParameter('pass'))){
           
-          $this->getUser()->IniciarSesion($usuario,md5($pass));
-          return $this->redirect('http://localhost/2012pw2tp2/backend_dev.php');
-
+          $this->getUser()->IniciarSesion($usuario,$pass);
+          
+          
+          if($this->getUser()->isAuthenticated()){
+              if($this->getUser()->getAttribute('nivel')!='cliente'){
+                  return $this->redirect('http://localhost/2012pw2tp2/backend_dev.php');
+              }else{
+                  return $this->redirect('http://localhost/2012pw2tp2/frontend_dev.php');
+              }
+          }
       }
       
       if($request->getParameter('logout')){

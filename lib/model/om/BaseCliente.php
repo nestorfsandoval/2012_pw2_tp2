@@ -79,6 +79,18 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 	protected $email;
 
 	/**
+	 * The value for the user field.
+	 * @var        string
+	 */
+	protected $user;
+
+	/**
+	 * The value for the pass field.
+	 * @var        string
+	 */
+	protected $pass;
+
+	/**
 	 * @var        Ciudad
 	 */
 	protected $aCiudadRelatedByIdProv;
@@ -191,6 +203,26 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 	public function getEmail()
 	{
 		return $this->email;
+	}
+
+	/**
+	 * Get the [user] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getUser()
+	{
+		return $this->user;
+	}
+
+	/**
+	 * Get the [pass] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getPass()
+	{
+		return $this->pass;
 	}
 
 	/**
@@ -362,6 +394,46 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 	} // setEmail()
 
 	/**
+	 * Set the value of [user] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     Cliente The current object (for fluent API support)
+	 */
+	public function setUser($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->user !== $v) {
+			$this->user = $v;
+			$this->modifiedColumns[] = ClientePeer::USER;
+		}
+
+		return $this;
+	} // setUser()
+
+	/**
+	 * Set the value of [pass] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     Cliente The current object (for fluent API support)
+	 */
+	public function setPass($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->pass !== $v) {
+			$this->pass = $v;
+			$this->modifiedColumns[] = ClientePeer::PASS;
+		}
+
+		return $this;
+	} // setPass()
+
+	/**
 	 * Indicates whether the columns in this object are only set to default values.
 	 *
 	 * This method can be used in conjunction with isModified() to indicate whether an object is both
@@ -401,6 +473,8 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 			$this->id_prov = ($row[$startcol + 5] !== null) ? (int) $row[$startcol + 5] : null;
 			$this->id_ciudad = ($row[$startcol + 6] !== null) ? (int) $row[$startcol + 6] : null;
 			$this->email = ($row[$startcol + 7] !== null) ? (string) $row[$startcol + 7] : null;
+			$this->user = ($row[$startcol + 8] !== null) ? (string) $row[$startcol + 8] : null;
+			$this->pass = ($row[$startcol + 9] !== null) ? (string) $row[$startcol + 9] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -409,7 +483,7 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 				$this->ensureConsistency();
 			}
 
-			return $startcol + 8; // 8 = ClientePeer::NUM_HYDRATE_COLUMNS.
+			return $startcol + 10; // 10 = ClientePeer::NUM_HYDRATE_COLUMNS.
 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating Cliente object", $e);
@@ -719,6 +793,12 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 		if ($this->isColumnModified(ClientePeer::EMAIL)) {
 			$modifiedColumns[':p' . $index++]  = '`EMAIL`';
 		}
+		if ($this->isColumnModified(ClientePeer::USER)) {
+			$modifiedColumns[':p' . $index++]  = '`USER`';
+		}
+		if ($this->isColumnModified(ClientePeer::PASS)) {
+			$modifiedColumns[':p' . $index++]  = '`PASS`';
+		}
 
 		$sql = sprintf(
 			'INSERT INTO `cliente` (%s) VALUES (%s)',
@@ -753,6 +833,12 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 						break;
 					case '`EMAIL`':
 						$stmt->bindValue($identifier, $this->email, PDO::PARAM_STR);
+						break;
+					case '`USER`':
+						$stmt->bindValue($identifier, $this->user, PDO::PARAM_STR);
+						break;
+					case '`PASS`':
+						$stmt->bindValue($identifier, $this->pass, PDO::PARAM_STR);
 						break;
 				}
 			}
@@ -934,6 +1020,12 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 			case 7:
 				return $this->getEmail();
 				break;
+			case 8:
+				return $this->getUser();
+				break;
+			case 9:
+				return $this->getPass();
+				break;
 			default:
 				return null;
 				break;
@@ -971,6 +1063,8 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 			$keys[5] => $this->getIdProv(),
 			$keys[6] => $this->getIdCiudad(),
 			$keys[7] => $this->getEmail(),
+			$keys[8] => $this->getUser(),
+			$keys[9] => $this->getPass(),
 		);
 		if ($includeForeignObjects) {
 			if (null !== $this->aCiudadRelatedByIdProv) {
@@ -1037,6 +1131,12 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 			case 7:
 				$this->setEmail($value);
 				break;
+			case 8:
+				$this->setUser($value);
+				break;
+			case 9:
+				$this->setPass($value);
+				break;
 		} // switch()
 	}
 
@@ -1069,6 +1169,8 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 		if (array_key_exists($keys[5], $arr)) $this->setIdProv($arr[$keys[5]]);
 		if (array_key_exists($keys[6], $arr)) $this->setIdCiudad($arr[$keys[6]]);
 		if (array_key_exists($keys[7], $arr)) $this->setEmail($arr[$keys[7]]);
+		if (array_key_exists($keys[8], $arr)) $this->setUser($arr[$keys[8]]);
+		if (array_key_exists($keys[9], $arr)) $this->setPass($arr[$keys[9]]);
 	}
 
 	/**
@@ -1088,6 +1190,8 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 		if ($this->isColumnModified(ClientePeer::ID_PROV)) $criteria->add(ClientePeer::ID_PROV, $this->id_prov);
 		if ($this->isColumnModified(ClientePeer::ID_CIUDAD)) $criteria->add(ClientePeer::ID_CIUDAD, $this->id_ciudad);
 		if ($this->isColumnModified(ClientePeer::EMAIL)) $criteria->add(ClientePeer::EMAIL, $this->email);
+		if ($this->isColumnModified(ClientePeer::USER)) $criteria->add(ClientePeer::USER, $this->user);
+		if ($this->isColumnModified(ClientePeer::PASS)) $criteria->add(ClientePeer::PASS, $this->pass);
 
 		return $criteria;
 	}
@@ -1157,6 +1261,8 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 		$copyObj->setIdProv($this->getIdProv());
 		$copyObj->setIdCiudad($this->getIdCiudad());
 		$copyObj->setEmail($this->getEmail());
+		$copyObj->setUser($this->getUser());
+		$copyObj->setPass($this->getPass());
 
 		if ($deepCopy && !$this->startCopy) {
 			// important: temporarily setNew(false) because this affects the behavior of
@@ -1521,6 +1627,8 @@ abstract class BaseCliente extends BaseObject  implements Persistent
 		$this->id_prov = null;
 		$this->id_ciudad = null;
 		$this->email = null;
+		$this->user = null;
+		$this->pass = null;
 		$this->alreadyInSave = false;
 		$this->alreadyInValidation = false;
 		$this->clearAllReferences();
