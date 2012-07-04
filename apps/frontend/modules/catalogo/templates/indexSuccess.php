@@ -24,6 +24,17 @@
       <td><?php echo $producto->getGenero() ?></td>
       <td><?php echo '$'  .   $producto->getPrecio() ?></td> 
     </tr>
-    <?php endforeach; ?>
+    <?php 
+    endforeach; 
+    ?>    
   </tbody>
 </table>
+<?php
+  include 'paginacion.php';
+        if(isset($_GET['pag'])){
+		$pagina=$_GET['pag'];
+	}else{
+                $pagina=1;
+        }
+        paginarRegistros($cantidad, 5, $pagina);
+  ?>

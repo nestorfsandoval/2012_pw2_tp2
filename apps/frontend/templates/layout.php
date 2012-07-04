@@ -15,9 +15,14 @@
 
     <!-- include base css files from plugin -->
     <?php include_partial('default/mpProjectPlugin_css_assets', array('load' => array('twitter_bootstrap'))); ?>
-
-    <?php include_stylesheets() ?>
+    <?php 
+        use_javascript('jquery-1.6.2.min.js');
+        use_javascript('login.js');
+        include_stylesheets();
+        include_javascripts();
+    ?>
   </head>
+  <?php require_once 'paginacion.php';?>
   <body>
     	 <!--DIV QUE CONTIENE EL ENCABEZADO-->
     <div id="todo">
@@ -44,7 +49,7 @@
                             <input name="pass" value="" type="password" id="pass"/>
                             <button><i class="loguear"></i></button>
                    </form>
-                    
+                    <div id="loginReg"><a href="<?php echo url_for('registro/new');?>">Registrarse</a>|<a id="loguearse">Loguearse</div>
                     <?php 
                     echo $sf_user->getAttribute('alerta');
                     

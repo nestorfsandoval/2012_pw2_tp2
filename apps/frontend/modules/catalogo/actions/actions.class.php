@@ -12,8 +12,18 @@ class catalogoActions extends sfActions
 public function executeIndex(sfWebRequest $request)
   {
         
-    $consulta = productoQuery::create();
+    $consulta = productoQuery::create()
+                ->joinWith('Artista')
+                ->joinWith('Genero');
+    $consultaCantidad=productoQuery::create();
     
+    $limit=5;
+    if($request->getParameter('pag')&&($request->getParameter('pag')>1)){
+        $inicio=$request->getParameter('pag')*5-5;
+        $limite=5 * $request->getParameter('pag');
+    
+        $limit="$inicio,$limite";
+    }
     if($request->getParameter('buscaProdu')){
         $palabra=$request->getParameter('buscaProdu');
         $consulta->filterByTitulo('%'.$palabra.'%')
@@ -23,7 +33,10 @@ public function executeIndex(sfWebRequest $request)
                     ->endUse();
     }
     
+    
+    $consulta->limit($limit);
     $this->productos=$consulta->find();
+    $this->cantidad=$consultaCantidad->count();
   }
 
   public function executeNew(sfWebRequest $request)

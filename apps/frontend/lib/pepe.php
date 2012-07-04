@@ -1,6 +1,6 @@
 <?php
 
-class myUser extends sfBasicSecurityUser
+class myUser2 extends sfBasicSecurityUser
 {
     public function iniciarSesion($nombre_usuario,$pass){
     

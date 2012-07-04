@@ -255,3 +255,31 @@ text-align:center;
   width: 25px;
   height: 25px;
 }
+
+#loginReg{
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+#loginReg a{
+    text-decoration: none;
+    color:#CCC;
+}
+
+#loginReg a:hover{
+    color:white;
+    cursor: pointer;
+}
+
+#Registro table{
+    width: 40%;
+    background-color: white;
+    border-radius: 5px;
+    margin:auto;
+}
+
+#derechos{
+    font-size: 12px;
+    text-align: center;
+}

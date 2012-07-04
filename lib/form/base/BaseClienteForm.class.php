@@ -19,7 +19,7 @@ abstract class BaseClienteForm extends BaseFormPropel
       'nombre'    => new sfWidgetFormInputText(),
       'telefono'  => new sfWidgetFormInputText(),
       'direccion' => new sfWidgetFormInputText(),
-      'id_prov'   => new sfWidgetFormPropelChoice(array('model' => 'Ciudad', 'add_empty' => false, 'key_method' => 'getIdProvincia')),
+      'id_prov'   => new sfWidgetFormPropelChoice(array('model' => 'Provincia', 'add_empty' => false, 'key_method' => 'getIdProvincia')),
       'id_ciudad' => new sfWidgetFormPropelChoice(array('model' => 'Ciudad', 'add_empty' => false)),
       'email'     => new sfWidgetFormInputText(),
     ));
@@ -32,9 +32,10 @@ abstract class BaseClienteForm extends BaseFormPropel
       'direccion' => new sfValidatorString(array('max_length' => 150)),
       'id_prov'   => new sfValidatorPropelChoice(array('model' => 'Ciudad', 'column' => 'id_provincia')),
       'id_ciudad' => new sfValidatorPropelChoice(array('model' => 'Ciudad', 'column' => 'idciudad')),
-      'email'     => new sfValidatorString(array('max_length' => 100)),
+      //'email'     => new sfValidatorString(array('max_length' => 100)),
+      'email'     => new sfValidatorEmail(array('required' => true) , array('required'=> 'Se requiere una direccion de e-mail')),
     ));
-
+    
     $this->validatorSchema->setPostValidator(
       new sfValidatorPropelUnique(array('model' => 'Cliente', 'column' => array('id_clie')))
     );

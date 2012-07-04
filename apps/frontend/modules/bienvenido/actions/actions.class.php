@@ -29,4 +29,5 @@ class bienvenidoActions extends sfActions
       }
     
   }
+  
 }
