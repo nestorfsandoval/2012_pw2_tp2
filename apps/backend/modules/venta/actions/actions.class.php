@@ -17,6 +17,24 @@ class ventaActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    
+    $consulta= VentaQuery::create()
+              ->joinWith('Producto')
+              ->joinWith('Cliente');
+
+       if ($request->getParameter('busqueda')){
+           $palabra=$request->getParameter('busqueda');
+           $consulta->useProductoQuery()
+                   ->filterByTitulo('%'.$palabra.'%')
+                   ->endUse();
+           
+        if($request->getParameter('desdefecha')&&$request->getParameter('hastafecha')){
+             $desde=$request->getParameter('desdefecha');
+             $hasta=$request->getParameter('hastafecha');
+             $consulta->where("fecha BETWEEN '$desde' AND '$hasta'");
+         }
+       }
+      
+               
+    $this->ventas=$consulta->find();
   }
 }
